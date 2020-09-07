@@ -8,8 +8,8 @@ public class CBOntoMetric implements QualityMetricsStrategy {
 
     @Override
     public int calculateQualityMetric(MetricOntologyModel metricOntologyModel) {
-        float cboonto = (float) metricOntologyModel.getNumSuperclasses() /
+        float cbonto = (float) metricOntologyModel.getNumSuperclasses() /
                 (metricOntologyModel.getNumClasses() - metricOntologyModel.getRelationsThing());
-        return ComputeQualityMetrics.getTotalValue(cboonto);
+        return ComputeQualityMetrics.calculateScore(cbonto);
     }
 }

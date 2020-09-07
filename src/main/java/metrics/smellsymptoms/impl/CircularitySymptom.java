@@ -1,6 +1,6 @@
-package metrics.smellerrors.impl;
+package metrics.smellsymptoms.impl;
 
-import metrics.smellerrors.SmellErrorTemplate;
+import metrics.smellsymptoms.SmellSymptonTemplate;
 import drontoapi.except.UnexpectedErrorException;
 import drontoapi.pitfallmanager.Pitfall;
 import java.io.IOException;
@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CircularityErrors extends SmellErrorTemplate {
+public class CircularitySymptom extends SmellSymptonTemplate {
 
     private static final Integer []arrayPitfallsCircularity = {6};
 
-    public  List<Pitfall> getListSmellErrors(String path){
+    public  List<Pitfall> getListSmellSymptoms(String path){
         List<Pitfall> listResult = new ArrayList<>();
 
         try {
-            listResult = SmellErrorTemplate.getPitfallsSelector(path, arrayPitfallsCircularity);
+            listResult = SmellSymptonTemplate.getPitfallsSelector(path, arrayPitfallsCircularity);
         } catch (UnexpectedErrorException | IOException ex) {
-            Logger.getLogger(CircularityErrors.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CircularitySymptom.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listResult;
     }

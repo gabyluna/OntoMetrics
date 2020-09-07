@@ -1,6 +1,6 @@
-package metrics.smellerrors.impl;
+package metrics.smellsymptoms.impl;
 
-import metrics.smellerrors.SmellErrorTemplate;
+import metrics.smellsymptoms.SmellSymptonTemplate;
 import drontoapi.except.UnexpectedErrorException;
 import drontoapi.pitfallmanager.Pitfall;
 import java.io.IOException;
@@ -9,15 +9,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class IncompletenessErrors extends SmellErrorTemplate {
+public class IncompletenessSymptom extends SmellSymptonTemplate {
     private static final  Integer []arrayPitfallsIncompleteness = {4,8,11,13};
 
-    public List<Pitfall> getListSmellErrors(String path){
+    public List<Pitfall> getListSmellSymptoms(String path){
         List<Pitfall> listResult = new ArrayList<>();
         try {
-            listResult = SmellErrorTemplate.getPitfallsSelector(path, arrayPitfallsIncompleteness);
+            listResult = SmellSymptonTemplate.getPitfallsSelector(path, arrayPitfallsIncompleteness);
         } catch (UnexpectedErrorException | IOException ex) {
-            Logger.getLogger(IncompletenessErrors.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IncompletenessSymptom.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listResult;
     }

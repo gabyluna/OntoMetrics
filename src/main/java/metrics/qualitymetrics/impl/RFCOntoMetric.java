@@ -10,7 +10,7 @@ public class RFCOntoMetric implements QualityMetricsStrategy {
     public int calculateQualityMetric(MetricOntologyModel metricOntologyModel) {
         float rfconto = (float) (metricOntologyModel.getNumProperties() + metricOntologyModel.getNumSuperclasses()) /
                 metricOntologyModel.getNumClasses();
-        return ComputeQualityMetrics.getTotalValue(rfconto);
+        return ComputeQualityMetrics.calculateScore(rfconto);
     }
 
 

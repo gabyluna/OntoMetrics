@@ -1,6 +1,6 @@
-package metrics.smellerrors;
+package metrics.smellsymptoms;
 
-public enum SmellErrorEnum {
+public enum SmellSymptomEnum {
 
     CIRCULARITY,
     INCOMPLETENESS,

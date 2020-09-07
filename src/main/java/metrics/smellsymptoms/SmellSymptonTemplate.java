@@ -1,6 +1,5 @@
-package metrics.smellerrors;
+package metrics.smellsymptoms;
 
-import model.MetricOntologyModel;
 import drontoapi.except.UnexpectedErrorException;
 import drontoapi.pitfallmanager.AffectedElement;
 import drontoapi.pitfallmanager.IPitfallManager;
@@ -9,6 +8,8 @@ import drontoapi.pitfallmanager.PitfallManager;
 import drontoapi.service.IWebService;
 import drontoapi.service.WebService;
 import drontoapi.util.PitfallSelector;
+import model.MetricOntologyModel;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,11 +17,12 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public abstract class SmellErrorTemplate {
+public abstract class SmellSymptonTemplate {
 
-   private static IWebService webService = new WebService();
+   private static
+   IWebService webService = new WebService();
 
-    public  abstract List<Pitfall> getListSmellErrors(String path);
+    public  abstract List<Pitfall> getListSmellSymptoms(String path);
 
     public static List<Pitfall> getPitfallsSelector(String path, Integer[] arrayPitfallsSelector) throws UnexpectedErrorException, IOException {
         webService.setOntologyFile(path);
@@ -35,7 +37,7 @@ public abstract class SmellErrorTemplate {
         return manager.getPitfalls();
     }
 
-    public static List<AffectedElement> getElementsSmellErrors(String path, Pitfall pitfall) {
+    public static List<AffectedElement> getElementsSmellSymptoms(String path, Pitfall pitfall) {
         List<AffectedElement> listResult = new ArrayList<>();
 
         try {
@@ -43,7 +45,7 @@ public abstract class SmellErrorTemplate {
             IPitfallManager manager = new PitfallManager(webService.getResponse());
             listResult =  manager.getAffectedElements(pitfall);
         } catch (UnexpectedErrorException | IOException ex) {
-            Logger.getLogger(SmellErrorTemplate.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SmellSymptonTemplate.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listResult;
     }
